@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         var sleepingDurations = ArrayList<DurationEntity>()
         allDuration.observe(this, Observer {
             for (i in 0 until it.size - 1) {
-                val isSleeping = (it[i].fromTime - it[i + 1].toTime) / (1000 /** 60 * 60*/) > 2
+                val isSleeping = (it[i].fromTime - it[i + 1].toTime) / (1000 * 60/* * 60*/) >= 2
                 if (isSleeping) {
                     sleepingDurations.add(DurationEntity(it[i].fromTime, it[i + 1].toTime))
                 }
